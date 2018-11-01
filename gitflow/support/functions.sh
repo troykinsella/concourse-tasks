@@ -1,6 +1,6 @@
 
 gitflow_release_branch_name() {
-  echo "release/${VERSION_PREFIX}${VERSION}"
+  echo "release/${VERSION}"
 }
 
 gitflow_develop_current_with_master() {
@@ -11,3 +11,7 @@ gitflow_find_release_version() {
   git branch -a | fgrep 'release/' | sort | tail -1 | awk -F '/' '{print $NF}'
 }
 
+gitflow_checkout_release_branch() {
+  local version=$(gitflow_find_release_version)
+  git checkout feature/${version}
+}
