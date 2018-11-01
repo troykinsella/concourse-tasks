@@ -1,0 +1,21 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: troykinsella/concourse-util
+
+inputs:
+- name: tasks
+- name: version
+- name: source
+
+outputs:
+- name: iunno
+
+run:
+  path: tasks/gitflow/complete_start_release.sh
+  args:
+  - version
+  - source

@@ -1,0 +1,18 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: troykinsella/concourse-util
+
+inputs:
+- name: tasks
+- name: version
+- name: source
+
+run:
+  path: tasks/gitflow/complete_finish_release.sh
+  args:
+  - version
+  - source
