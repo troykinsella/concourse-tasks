@@ -11,9 +11,6 @@ inputs:
 - name: version
 - name: source
 
-outputs:
-- name: iunno
-
 run:
   path: tasks/gitflow/complete_start_release.sh
   args:
