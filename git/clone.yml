@@ -10,9 +10,9 @@ inputs:
 - name: tasks
 
 outputs:
-- name: git-repo
+- name: source
 
 run:
   path: tasks/git/clone.sh
   args:
-  - git-repo
+  - source
