@@ -15,6 +15,10 @@ VERSION=$(cat $VERSION_DIR/number)
 
 git_ensure_branch $(gitflow_release_branch_name)
 
-git flow release publish --showcommands $VERSION
+if [ "$DRY_RUN" = "true" ]; then
+  echo "Dry run: Skipping release publish"
+else
+  git flow release publish --showcommands $VERSION
+fi
 
 echo "Published $(gitflow_release_branch_name)"

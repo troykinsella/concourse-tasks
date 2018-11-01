@@ -11,6 +11,10 @@ source $DIR/support/functions.sh
 
 cd $SOURCE_IN
 
-export GIT_MERGE_AUTOEDIT=no
-git flow release finish --showcommands -p -D -m "chore(release): Release $VERSION"
-unset GIT_MERGE_AUTOEDIT
+if [ "$DRY_RUN" = "true" ]; then
+  echo "Dry run: Skipping release finish"
+else
+  export GIT_MERGE_AUTOEDIT=no
+  git flow release finish --showcommands -p -D -m "chore(release): Release $VERSION"
+  unset GIT_MERGE_AUTOEDIT
+fi
