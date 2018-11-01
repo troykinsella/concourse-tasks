@@ -9,6 +9,10 @@ cd $SOURCE
 
 VERSION=$(gitflow_find_release_version)
 
-echo "Found release version: ${VERSION}"
-
-echo $VERSION > $VERSION_OUT/number
+if [ -z "$VERSION" ]; then
+  echo "Release branch not found"
+  test "$REQUIRE" = "true" && exit 1
+else
+  echo "Found release version: ${VERSION}"
+  echo $VERSION > $VERSION_OUT/number
+fi
