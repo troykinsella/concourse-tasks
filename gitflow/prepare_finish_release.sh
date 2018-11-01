@@ -19,9 +19,7 @@ git clone $REPO .
 $DIR/../gitflow/support/configure.sh
 git_track_remotes
 
-VERSION=$(gitflow_find_release_version)
-test -z "$VERSION" && { echo "Release branch not found" >&2; exit 1; }
-
+VERSION=$(gitflow_require_release_version)
 gitflow_checkout_release_branch
 
 echo $VERSION > $VERSION_OUT/number

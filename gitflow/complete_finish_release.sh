@@ -2,14 +2,15 @@
 
 set -ex
 
-VERSION_DIR=$PWD/$1
-SOURCE_IN=$PWD/$2
+SOURCE_IN=$PWD/$1
 
 DIR=$(dirname $0)
 source $DIR/../git/support/functions.sh
 source $DIR/support/functions.sh
 
 cd $SOURCE_IN
+
+VERSION=$(gitflow_require_release_version)
 
 if [ "$DRY_RUN" = "true" ]; then
   echo "Dry run: Skipping release finish"
