@@ -11,8 +11,11 @@ inputs:
 
 outputs:
 - name: source
+- name: version
 
 run:
   path: tasks/gitflow/prepare_finish_release.sh
   args:
   - source
+  - version
+

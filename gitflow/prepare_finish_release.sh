@@ -3,6 +3,7 @@
 set -ex
 
 SOURCE_OUT=$PWD/$1
+VERSION_OUT=$PWD/$2
 
 test -z "$REPO" && { echo "REPO parameter must be supplied" >&2; exit 1; }
 
@@ -18,4 +19,9 @@ git clone $REPO .
 $DIR/../gitflow/support/configure.sh
 git_track_remotes
 
-git checkout $(gitflow_release_branch_name)
+VERSION=$(gitflow_find_release_version)
+test -z "$VERSION" && { echo "Release branch not found" >&2; exit 1; }
+
+gitflow_checkout_release_branch
+
+echo $VERSION > $VERSION_OUT/number
