@@ -23,6 +23,10 @@ fi
 if [ -n "$BRANCH" ]; then
   echo "Checking out branch: $BRANCH"
   git checkout $BRANCH
+elif [ "$GIT_FLOW_CHECKOUT_RELEASE" = "true" ]; then
+  echo "Checking out git flow release branch"
+  source $DIR/../gitflow/support/functions.sh
+  gitflow_checkout_release_branch
 fi
 
 echo "Git status:"
