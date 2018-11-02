@@ -17,6 +17,7 @@ gitflow_require_release_version() {
     echo "Release branch not found" >&2
     exit 1
   fi
+  echo $version
 }
 
 gitflow_checkout_release_branch() {
