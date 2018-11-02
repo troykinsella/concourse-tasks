@@ -29,5 +29,6 @@ elif [ "$GIT_FLOW_CHECKOUT_RELEASE" = "true" ]; then
   gitflow_checkout_release_branch
 fi
 
+echo
 echo "Git status:"
 git status

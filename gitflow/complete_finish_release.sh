@@ -7,6 +7,7 @@ SOURCE_IN=$PWD/$1
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 source $DIR/../git/support/functions.sh
 source $DIR/support/functions.sh
+$DIR/../git/support/configure.sh
 
 cd $SOURCE_IN
 
