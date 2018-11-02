@@ -15,7 +15,7 @@ $DIR/../git/support/configure.sh
 
 cd $SOURCE_OUT
 
-VERSION=$(gitflow_find_release_version)
+VERSION=$(cat $VERSION_DIR/number)
 
 git clone $REPO .
 $DIR/../gitflow/support/configure.sh
