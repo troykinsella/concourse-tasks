@@ -15,11 +15,11 @@ $DIR/../git/support/configure.sh
 
 cd $SOURCE_OUT
 
-VERSION=$(cat $VERSION_DIR/number)
-
 git clone $REPO .
 $DIR/../gitflow/support/configure.sh
 git_track_remotes
+
+VERSION=$(gitflow_find_release_version)
 
 if [ -z "$VERSION" ]; then
   VERSION=$(cat $VERSION_DIR/number)

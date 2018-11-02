@@ -14,4 +14,4 @@ if [ -n "$GIT_PRIVATE_KEY" ]; then
 fi
 
 sed -i -e '$a\Host *' /etc/ssh/ssh_config
-sed -i -e '$a\    StrictHostKeyChecking ${STRICT_HOST_KEY_CHECKING:-no}' /etc/ssh/ssh_config
+sed -i -e "\$a\    StrictHostKeyChecking ${STRICT_HOST_KEY_CHECKING:-no}" /etc/ssh/ssh_config
