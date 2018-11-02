@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
 
@@ -6,7 +6,7 @@ OUT=$PWD/$1
 
 test -z "$REPO" && { echo "REPO parameter must be supplied" >&2; exit 1; }
 
-DIR=$(dirname $0)
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 source $DIR/support/functions.sh
 $DIR/support/configure.sh
 

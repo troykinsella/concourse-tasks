@@ -1,9 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -ex
 
 SOURCE=$PWD/$1
 VERSION_OUT=$PWD/$2
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
+source $DIR/../git/support/functions.sh
+source $DIR/support/functions.sh
 
 cd $SOURCE
 
