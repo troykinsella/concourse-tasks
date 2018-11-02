@@ -3,9 +3,9 @@
 test -z "$GIT_USER" && { echo "Must supply GIT_USER" >&2; exit 1; }
 test -z "$GIT_EMAIL" && { echo "Must supply GIT_EMAIL" >&2; exit 1; }
 
-git config --local user.name $GIT_USER
-git config --local user.email $GIT_EMAIL
-git config --local push.default simple
+git config --global user.name $GIT_USER
+git config --global user.email $GIT_EMAIL
+git config --global push.default simple
 
 if [ -n "$GIT_PRIVATE_KEY" ]; then
   mkdir -p ~/.ssh
