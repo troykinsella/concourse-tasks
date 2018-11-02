@@ -30,7 +30,7 @@ git_check_branch_current() {
 }
 
 git_track_remotes() {
-  for i in $(git branch -r | egrep -v "HEAD|master"); do
+  for i in $(git branch -r | grep -v "HEAD"); do
     git branch --track ${i#*/} $i || true
   done
 }
