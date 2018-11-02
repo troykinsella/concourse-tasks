@@ -18,5 +18,5 @@ gitflow_require_release_version() {
 
 gitflow_checkout_release_branch() {
   local version=$(gitflow_find_release_version)
-  git checkout feature/${version}
+  git checkout release/${version}
 }
