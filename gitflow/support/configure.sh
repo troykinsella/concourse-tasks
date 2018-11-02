@@ -14,4 +14,5 @@ gf_set bugfix     ${GIT_FLOW_BUGFIX_PREFIX:-bugfix/}
 gf_set release    ${GIT_FLOW_RELEASE_PREFIX:-release/}
 gf_set hotfix     ${GIT_FLOW_HOTFIX_PREFIX:-hotfix/}
 gf_set support    ${GIT_FLOW_SUPPORT_PREFIX:-support/}
-gf_set versiontag ${VERSION_PREFIX:-""}
+
+test -n "$VESRION_PREFIX" && gf_set versiontag ${VERSION_PREFIX}
