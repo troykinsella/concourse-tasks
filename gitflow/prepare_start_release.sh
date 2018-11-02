@@ -10,14 +10,12 @@ test -z "$REPO" && { echo "REPO parameter must be supplied" >&2; exit 1; }
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 source $DIR/../git/support/functions.sh
 source $DIR/support/functions.sh
-
 $DIR/../git/support/configure.sh
 
 cd $SOURCE_OUT
 
 git clone $REPO .
 git_track_remotes
-$DIR/../git/support/configure.sh
 $DIR/support/configure.sh
 
 VERSION=$(gitflow_find_release_version)
