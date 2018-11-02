@@ -17,7 +17,8 @@ cd $SOURCE_OUT
 
 git clone $REPO .
 git_track_remotes
-$DIR/../gitflow/support/configure.sh
+$DIR/../git/support/configure.sh
+$DIR/support/configure.sh
 
 VERSION=$(gitflow_find_release_version)
 

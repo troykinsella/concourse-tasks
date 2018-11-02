@@ -19,6 +19,5 @@ if [ "$DRY_RUN" = "true" ]; then
   echo "Dry run: Skipping release publish"
 else
   git flow release publish --showcommands $VERSION
+  echo "Published $(gitflow_release_branch_name)"
 fi
-
-echo "Published $(gitflow_release_branch_name)"
