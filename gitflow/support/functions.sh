@@ -13,7 +13,10 @@ gitflow_find_release_version() {
 
 gitflow_require_release_version() {
   local version=$(gitflow_find_release_version)
-  test -z "$version" && { echo "Release branch not found" >&2; exit 1; }
+  if [ -z "$version" ]; then
+    echo "Release branch not found" >&2
+    exit 1
+  fi
 }
 
 gitflow_checkout_release_branch() {
