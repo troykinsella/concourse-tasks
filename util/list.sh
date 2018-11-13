@@ -7,4 +7,5 @@ cd $VOLUME
 
 test -n "$DIR" && cd $DIR
 
+pwd
 ls -altR
