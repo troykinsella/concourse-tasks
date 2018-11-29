@@ -10,7 +10,7 @@ VERSION=$(cat ${VERSION_DIR}/number)
 echo "Semver: ${VERSION}"
 
 FINAL_PART=$(echo ${VERSION} | awk -F- '{print $1}')
-PRE_PART=$(echo ${VERSION} | sed "s/^${FINAL_PART}-//")
+PRE_PART=$(echo ${VERSION} | sed "s/^${FINAL_PART}//" | sed "s/^-//")
 if [ -z "${PRE_PART}" ]; then
   RG_VERSION="${VERSION}"
 else
