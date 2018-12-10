@@ -1,0 +1,36 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: troykinsella/concourse-util
+
+inputs:
+- name: tasks
+- name: root
+
+outputs:
+- name: built
+
+params:
+  LOG_FILE:
+  SKIP_PRIVILEGED:
+  STARTUP_TIMEOUT:
+  MAX_CONCURRENT_DOWNLOADS:
+  MAX_CONCURRENT_UPLOADS:
+  PID_FILE:
+  REGISTRY:
+  USERNAME:
+  PASSWORD:
+  BUILD_ARGS:
+  LABELS:
+  DOCKERFILE:
+  SAVE: false
+  COMPRESS_SAVE: false
+
+run:
+  path: tasks/docker/build.sh
+  args:
+  - root
+  - built
