@@ -44,7 +44,8 @@ if [ "${#label_keys[@]}" -gt 0 ]; then
   done
 fi
 
-docker build ${target_option} ${expanded_build_args[@]} ${expanded_labels[@]} -f $DOCKERFILE $ROOT
+cd $ROOT
+docker build ${target_option} ${expanded_build_args[@]} ${expanded_labels[@]} -f $DOCKERFILE .
 
 if [ "$SAVE" = "true" ]; then
   IMAGE_ID=$(docker images | awk '{print $1}' | awk 'NR==2')
