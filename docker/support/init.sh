@@ -115,3 +115,18 @@ docker_log_in() {
 
   docker login -u "${username}" -p "${password}" ${registry}
 }
+
+# Arg:
+# "- domain: <domain>
+#    cert: <cert>"
+add_docker_ca_cert() {
+  local raw_ca_certs="${1}"
+  local cert_count="$(echo $raw_ca_certs | jq -r '. | length')"
+
+  for i in $(seq 0 $(expr "$cert_count" - 1));
+  do
+    local cert_dir="/etc/docker/certs.d/$(echo $raw_ca_certs | jq -r .[$i].domain)"
+    mkdir -p "$cert_dir"
+    echo $raw_ca_certs | jq -r .[$i].cert >> "${cert_dir}/ca.crt"
+  done
+}
