@@ -28,6 +28,7 @@ params:
   DOCKERFILE:
   SAVE: false
   COMPRESS_SAVE: false
+  DIRECTORY: . # The directory in which to run `docker build`, relative to `root`
 
 run:
   path: tasks/docker/build.sh

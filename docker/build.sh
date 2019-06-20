@@ -44,7 +44,7 @@ if [ "${#label_keys[@]}" -gt 0 ]; then
   done
 fi
 
-cd $ROOT
+cd $ROOT/$DIRECTORY
 docker build ${target_option} ${expanded_build_args[@]} ${expanded_labels[@]} -f $DOCKERFILE .
 
 if [ "$SAVE" = "true" ]; then
