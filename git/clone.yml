@@ -8,11 +8,30 @@ image_resource:
 
 inputs:
 - name: tasks
+  # An optional volume containing a file that contains a branch name to checkout.
+- name: branch-file-source
+  optional: true
 
 outputs:
+  # The cloned repository
 - name: source
+
+params:
+  # Required. The git repository URI to clone.
+  REPO:
+  # Optional. The branch name to checkout.
+  BRANCH:
+  # Optional. The file name containing the branch name to checkout, relative to the branch-file-source input volume
+  # which must be specified when this parameter is supplied. This overrides the BRANCH parameter.
+  BRANCH_FILE:
+  # Optional. Set to true to initialize git flow on the cloned repository.
+  GIT_FLOW: false
+  # Optional. Set to true to checkout the latest git flow release/<version> branch.
+  # Has no effect if BRANCH or BRANCH_FILE is supplied.
+  GIT_FLOW_CHECKOUT_RELEASE: false
 
 run:
   path: tasks/git/clone.sh
   args:
+  - branch-file-source
   - source
