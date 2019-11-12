@@ -9,8 +9,20 @@ image_resource:
 inputs:
 - name: tasks
 - name: source
+- name: message
+  optional: true
+
+params:
+  # A message to supply with `-m` to apply to the release tag.
+  # Mutually exclusive with `MESSAGE_FILE`.
+  MESSAGE:
+
+  # A file name relative to the `message` volume containing a message to supply with `-m` to apply to the release tag.
+  # Mutually exclusive with `MESSAGE`.
+  MESSAGE_FILE:
 
 run:
   path: tasks/gitflow/complete_finish_release.sh
   args:
   - source
+  - message
