@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -e
 
 SOURCE_IN="$PWD/$1"
 MESSAGE_DIR="$PWD/$2"
