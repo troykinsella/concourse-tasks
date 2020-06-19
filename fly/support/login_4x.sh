@@ -41,7 +41,7 @@ init_login() {
 }
 
 cookie_oauth_token() {
-  cat $COOKIE_FILE | grep 'skymarshal_auth' | grep -o 'Bearer .*$' | tr -d '"'
+  cat $COOKIE_FILE | grep 'skymarshal_auth' | grep -i -o 'Bearer .*$' | tr -d '"'
 }
 
 scrape_auth_local() {
